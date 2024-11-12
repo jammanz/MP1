@@ -18,17 +18,58 @@ def load_level():
         return
     else:
         with open(sys.argv[1], encoding='utf-8') as f:
-        	rows_num = int(f.readline().strip())
-        	moves_num = int(f.readline().strip())
-        	grid = [(f.readline().strip()) for row in range(rows_num)]
+            rows_num = int(f.readline().strip())
+            moves_num = int(f.readline().strip())
+            grid = [f.readline().strip() for row in range(rows_num)]
+             
             main_game(grid, moves_num)
 
+                
+def main_game(grid, moves_num):
+    prev = []
+    valid_moves = set(('L', 'l', 'R', 'r', 'F', 'f', 'B', 'b'))
+    game_points = 0
 
-def main_game():
+
+    # Test print output
+    for row in grid:
+        print(row)
+
+
+    print('Previous Moves:')
+    print('Remaining Moves:' + f'{moves_num}')
+    print('Points:' + f'{game_points}')
+    user_moves = input('Enter Move/s: ')
+    print(user_moves)
+    # Test print output
 
 
 
-def tilt():
+    #Valid move check
+    if all(move in valid_moves for move in user_moves):
+        tilt(grid, user_moves)
+
+    else:
+        print('Invalid')
+    
+
+
+def tilt(grid, moves):
+    for move in moves:
+        if move == 'L' or move == 'l':
+            print('test')
+        
+        if move == 'R' or move == 'R':
+            pass
+        
+        if move == 'F' or move == 'f':
+            pass
+        
+        if move == 'B' or move == 'b':
+            pass
+
 
 load_level()
+
+
 
